@@ -47,7 +47,7 @@ app.get("/ref", (req, res) => {
   const cookieValue = Buffer.from(`${payload}:${sig}`).toString("base64");
  
   res.cookie("ref_session", cookieValue, {
-    secure: true,
+    // secure: true,
     sameSite: "None",
     path: "/",
     maxAge: 7 * 24 * 60 * 60 * 1000,
