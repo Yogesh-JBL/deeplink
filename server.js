@@ -32,6 +32,7 @@ app.get('/ref', (req, res) => {
   // Use secure:true only when using HTTPS (production). For local dev you can set secure:false.
   res.cookie('ref_session', cookieValue, {
     // DO NOT set httpOnly (Safari may not persist it before App Store redirect)
+    domain: 'deeplink-swart.vercel.app',
     httpOnly: false,
     secure: true,        // true on Vercel (HTTPS). false on local http.
     sameSite: 'None',
