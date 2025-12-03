@@ -47,7 +47,6 @@ app.get("/ref", (req, res) => {
   const cookieValue = Buffer.from(`${payload}:${sig}`).toString("base64");
  
   res.cookie("ref_session", cookieValue, {
-    httpOnly: true,
     secure: true,
     sameSite: "None",
     path: "/",
