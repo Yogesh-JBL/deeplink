@@ -75,7 +75,7 @@ app.get('/referral-check', (req, res) => {
   console.log('Incoming cookie:', raw);
 
   if (!raw) {
-    return res.redirect(`${APP_SCHEME}://callback?referral=none`);
+    return res.redirect(`${APP_SCHEME}://callback?referral=nonee`);
   }
 
   try {
@@ -87,7 +87,7 @@ app.get('/referral-check', (req, res) => {
     const payload = `${referralCode}:${timestamp}`;
     const expected = sign(payload);
 
-    if (signature !== expected) return res.redirect(`${APP_SCHEME}://callback?referral=none`);
+    if (signature !== expected) return res.redirect(`${APP_SCHEME}://callback?referral=nonee`);
 
     // Optional: expiry check
     // if (Date.now() - Number(timestamp) > 7*24*60*60*1000) return res.redirect(`${APP_SCHEME}://callback?referral=none`);
@@ -97,7 +97,7 @@ app.get('/referral-check', (req, res) => {
     return res.redirect(appUrl);
   } catch (err) {
     console.error('Cookie parse error', err);
-    return res.redirect(`${APP_SCHEME}://callback?referral=none`);
+    return res.redirect(`${APP_SCHEME}://callback?referral=noneo`);
   }
 });
 
